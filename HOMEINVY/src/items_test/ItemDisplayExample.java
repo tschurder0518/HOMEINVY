@@ -45,7 +45,6 @@ public class ItemDisplayExample {
 		
 		// Post 2
 		// Iterate through each item of ArrayList and display information for each item based on item type
-		String text1 = "";
 		System.out.println("***** Should display " + theItems.size() + " items *****");
 		// Iterate through each element of Item type
 		// Determine the instance of each element and print based on that info
