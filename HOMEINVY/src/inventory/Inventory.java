@@ -16,7 +16,7 @@ import items.HardCopy;
 public class Inventory {
 
 	// CONSTANT for file name
-	static String INVENTORY_FILE = "src/inventory/InventoryFile.csv";
+	static String INVENTORY_FILE = "src/inventory/InventoryFile.txt";
 	
 	public static ArrayList<Item> theItems = new ArrayList<Item>();
 	
@@ -106,7 +106,7 @@ public class Inventory {
 		 }
 		 
 		 
-		System.out.println("***** Should display " + theItems.size() + " items *****");
+		System.out.println("***** Displaying " + theItems.size() + " items *****");
 		// Iterate through each element of Item type
 		// Determine the instance of each element and print based on that info
 		for (Item elem: theItems) {

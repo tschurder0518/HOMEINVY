@@ -6,5 +6,5 @@ Computer,Tess Laptop,Mobile,2018,Good,Lenovo,Yoga 720,No,i5,8 GB
 Hard Copy,Harry Potter and the Sorcerer's Stone,Study,2002,Good,JK Rowling,Fantasy Fiction Children,Yes Harry Potter,Left,	
 Soft Copy,The Cuckoo's Egg,Mobile devices,2019,Good,Clifford Stoll,Non-fiction Technology Education,No,Yes,No,
 Power Tool,Nail Gun,Garage,2015,Poor,DeWALT,Battery,,,,
-Hard Copy,Kingdom of Ash,Study,2016,Good,Sarah J. Maas,Fantasy Fiction,Yes Throne of Glass,Left,
+Hard Copy,Kingdom of Ash,Study,2016,Good,Sarah J. Maas,Fantasy Fiction,Yes Throne of Glass,Left,,
 Television,Bedroom TV,Master Bedroom,2020,Good,Samsung,QLED,No,Yes,48 inch,
