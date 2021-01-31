@@ -24,6 +24,20 @@ public abstract class Item {
 	public String getPurchaseYear() {return purchaseYear;}
 	public String getCondition() {return condition;}
 	
+	// Setters
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public void setPurchaseYear(String purchaseYear) {
+		this.purchaseYear = purchaseYear;
+	}
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
 	@Override
 	public String toString() {
 		/* INTENT: Return String representation of Item for displaying all item properties.

@@ -127,6 +127,7 @@ public class Inventory {
 		 }
 		 
 		// Post4 
+		System.out.println("***** ALL ITEMS IN INVENTORY *****");
 		System.out.println("***** Displaying " + theItems.size() + " items *****");
 		// Iterate through each element of Item type
 		// Determine the instance of each element and print based on that info
