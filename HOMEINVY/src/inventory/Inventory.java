@@ -12,6 +12,7 @@ import items.Television;
 import items.Computer;
 import items.SoftCopy;
 import items.HardCopy;
+import user_navigation.UserNavigation;
 
 public class Inventory {
 	/* INTENT: This class creates the inventory of items. It reads
@@ -20,7 +21,7 @@ public class Inventory {
 	 * 
 	 * See main() for more information.
 	 */
-	
+
 	// CONSTANT for file name
 	static String INVENTORY_FILE = "src/inventory/InventoryFile.txt";
 	
@@ -101,8 +102,54 @@ public class Inventory {
 		return theItems;
 	} // End of parseData() method
 	
+	public static ArrayList<Item> getTools(ArrayList<Item> theItems) {
+		// Post4
+		ArrayList<Item> tools = new ArrayList<Item>();
+		// Find and add Items of HandTool and PowerTool (tool) types to ArrayList
+		for (Item elem : theItems) {
+			if (elem instanceof HandTool || elem instanceof PowerTool) {
+				tools.add(elem);
+			}
+		}
+		return tools;
+	} // End of getTools() method
 	
+	public static ArrayList<Item> getElectronics(ArrayList<Item> theItems) {
+		// Post5
+		ArrayList<Item> electronics = new ArrayList<Item>();
+		for (Item elem : theItems) {
+			// Find and add Items of Computer and Television (electronic) types to ArrayList
+			if (elem instanceof Computer || elem instanceof Television) {
+				electronics.add(elem);
+			}
+		}
+		return electronics;
+	} // End of getElectronics() method
 	
+	public static ArrayList<Item> getBooks(ArrayList<Item> theItems) {
+		// Post6
+		ArrayList<Item> books = new ArrayList<Item>();
+		for (Item elem : theItems) {
+			// Find and add Items of HardCopy and SoftCopy (book) types to ArrayList
+			if (elem instanceof HardCopy || elem instanceof SoftCopy) {
+				books.add(elem);
+			}
+		}
+		return books;
+	} // End of getBooks() method
+	
+	public static void displayAll(ArrayList<Item> theItems) {
+		// Post7
+		System.out.println("      ***** Displaying " + theItems.size() + " items *****        ");
+		// Iterate through each element of Item type
+		// Determine the instance of each element and print based on that info
+		for (Item elem: theItems) {
+			System.out.println("=============================================");
+			if (elem != null) {
+				System.out.println(elem);
+			}
+		} // End of for loop		
+	} // End of displayAll() method
 	
 	
 	 public static void main(String[] args) {
@@ -116,9 +163,16 @@ public class Inventory {
 		 * in file.
 		 * Post3 (Create objects): Each line of information in file is used to create objects, which
 		 * are then added to ArrayList.
-		 * Post4 (Display): The items are displayed on the console.
+		 * Post4 (Get Tools): Search for items of type PowerTool or HandTool and add to new ArrayList
+		 * to be displayed.
+		 * Post5 (Get Electronics): Search for items of type Computer and Television and add to new
+		 * ArrayList to be displayed.
+		 * Post6 (Get Books): Search for items of type HardCopy and SoftCopy and add to new ArrayList
+		 * to be displayed.
+		 * Post7 (Display): The items are displayed on the console.
 		 */		
 		 
+		 // Create inventory from file
 		 try {
 			 theItems = readInventory(INVENTORY_FILE);
 		 }
@@ -126,17 +180,8 @@ public class Inventory {
 			 System.out.println(e);
 		 }
 		 
-		// Post4 
-		System.out.println("***** ALL ITEMS IN INVENTORY *****");
-		System.out.println("***** Displaying " + theItems.size() + " items *****");
-		// Iterate through each element of Item type
-		// Determine the instance of each element and print based on that info
-		for (Item elem: theItems) {
-			System.out.println("=============================================");
-			if (elem != null) {
-				System.out.println(elem);
-			}
-		} // End of for loop	
-	 }
+		// Provide user navigation to select what to do with inventory
+		UserNavigation.mainMenu(theItems);
 
+	 }
 }

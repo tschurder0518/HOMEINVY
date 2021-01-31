@@ -127,7 +127,7 @@ public class InventoryTest {
 		item4.setName("Basement New TV");
 		assertEquals("Basement New TV", item4.getName());
 		item4.setLocation("Basement Room 2");
-		assertEquals("Basement Room 2", item4.getLocation());
+		assertEquals("BasemInent Room 2", item4.getLocation());
 		item4.setCondition("Excellent");
 		assertEquals("Excellent", item4.getCondition());
 		item4.setPurchaseYear("2021");
@@ -253,5 +253,4 @@ public class InventoryTest {
 			assertEquals("Yes", itemTest2.getKindle());
 			assertEquals("No", itemTest2.getAudible());
 	}
-
 }
