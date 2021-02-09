@@ -1,6 +1,6 @@
 CATEGORY,NAME,LOCATION,PURCHASE YEAR,CONDITION,ATTRIBUTE 1,ATTRIBUTE 2,ATTRIBUTE 3,ATTRIBUTE 4,ATTRIBUTE 5
-Power Tool,Paint Sprayer,Garage,2014,Moderate,DeWALT,Electric plug in,,,				
-Hand Tool,Wood Chopping Axe,Shed,2021,Good,Stanley,8 pound,,,			
+Power Tool,Paint Sprayer,Garage,2014,Poor,DeWALT,Electric plug in,,,				
+Hand Tool,Wood Chopping Axe,Shed,2021,Moderate,Stanley,8 pound,,,			
 Television,Basement TV,Basement,2019,Good,Samsung,QLED,No,Yes,65 inch
 Computer,Tess Laptop,Mobile,2018,Good,Lenovo,Yoga 720,No,i5,8 GB
 Hard Copy,Harry Potter and the Sorcerer's Stone,Study,2002,Good,JK Rowling,Fantasy Fiction Children,Yes Harry Potter,Left,	
@@ -8,3 +8,5 @@ Soft Copy,The Cuckoo's Egg,Mobile devices,2019,Good,Clifford Stoll,Non-fiction T
 Power Tool,Nail Gun,Garage,2015,Poor,DeWALT,Battery,,,,
 Hard Copy,Kingdom of Ash,Study,2016,Good,Sarah J. Maas,Fantasy Fiction,Yes Throne of Glass,Left,,
 Television,Bedroom TV,Master Bedroom,2020,Good,Samsung,QLED,No,Yes,48 inch,
+Hard Copy,The Giver,Study,1995,Poor,Lois Lowry,Science Fiction Young Adult,No,Right,,
+Power Tool,Band Saw,Garage,2018,Moderate,DeWALT,Electric plug in,,,,

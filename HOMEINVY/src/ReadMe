@@ -1,22 +1,19 @@
 Tabitha O'Leary
 MET CS 622 - Spring O1 - 2021
 Project: HOMEINVY
-Assignment #2 - ReadMe
+Assignment #3 - ReadMe
 
-Requirements: Assignment #2
--Incorporate File I/O --> found in Inventory.java, using file InventoryFile.txt
--Incorporate Exceptions --> found in Inventory.java and InsufficientItemDataException.java
--Incorporate JUnit testing --> found in InventoryTest.java
+Requirements: Assignment #3
+-Incorporate Generic Class/Method --> found in Reports.java, methods printMaintenanceNeeded and printAllMaintenanceStatus
 
 HOMEINVY Requirements implemented as well:
--Use user input to navigate through main menu and view items sub-menu
--Display all items in the inventory and their properties (imported from file)
--Display only tools in the inventory and their properties (imported from file)
--Display only electronics in the inventory and their properties (imported from file)
--Display only books in the inventory and their properties (imported from file)
+-Main menu update - now includes reporting option
+-New report sub menu - allowing viewing of various maintenance reports
+-View items needing replacement or repair - displaying only items with "Poor" condition
+-View maintenance status for all items - displaying condition of all items, with special message if status is "Poor"
 
 Design:
--See class and sequence diagrams in assignment 2 document for details
+-See class and sequence diagrams in assignment 3 document for details (very little change in this version)
  
  Run:
  -Run the program from the inventory/Inventory.java in the main() method. Run JUnit testing from

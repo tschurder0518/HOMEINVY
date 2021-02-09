@@ -9,6 +9,7 @@ import items.Item;
 import items.PowerTool;
 import items.HandTool;
 import items.Television;
+import reports.Reports;
 import items.Computer;
 import items.SoftCopy;
 import items.HardCopy;
@@ -150,6 +151,9 @@ public class Inventory {
 			}
 		} // End of for loop		
 	} // End of displayAll() method
+	
+	
+
 	
 	
 	 public static void main(String[] args) {
