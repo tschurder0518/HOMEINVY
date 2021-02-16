@@ -9,11 +9,11 @@ import items.Item;
 import items.PowerTool;
 import items.HandTool;
 import items.Television;
-import reports.Reports;
 import items.Computer;
 import items.SoftCopy;
 import items.HardCopy;
 import user_navigation.UserNavigation;
+import java.util.stream.Collectors;
 
 public class Inventory {
 	/* INTENT: This class creates the inventory of items. It reads
@@ -29,7 +29,7 @@ public class Inventory {
 	// CONSTANT for all items created from the file
 	public static ArrayList<Item> theItems = new ArrayList<Item>();
 	
-	public static ArrayList readInventory(String INVENTORY_FILE) throws IOException,
+	public static ArrayList<Item> readInventory(String INVENTORY_FILE) throws IOException,
 			InsufficientItemDataException {
 		// Create new Scanner object for the inventory file, read each line
 		// Post1 - read file contents
@@ -53,7 +53,7 @@ public class Inventory {
 		return theItems;
 	} // End readInventory() method
 	
-	private static ArrayList parseData(String str) throws InsufficientItemDataException {
+	private static ArrayList<Item> parseData(String str) throws InsufficientItemDataException {
 		// Parse through information and create objects - Post2 and Post3
 		String category, name, location, purchaseYear, condition, att1, att2, att3, att4, att5;
 		Scanner lineScanner = new Scanner(str);
@@ -105,57 +105,51 @@ public class Inventory {
 	
 	public static ArrayList<Item> getTools(ArrayList<Item> theItems) {
 		// Post4
-		ArrayList<Item> tools = new ArrayList<Item>();
-		// Find and add Items of HandTool and PowerTool (tool) types to ArrayList
-		for (Item elem : theItems) {
-			if (elem instanceof HandTool || elem instanceof PowerTool) {
-				tools.add(elem);
-			}
-		}
+		// Use stream and lamdbas to filter Items of HandTool and PowerTool (tool)
+		// types and add to new ArrayList tools
+		ArrayList<Item> tools = theItems
+			.stream()
+			.filter(b -> b instanceof HandTool || b instanceof PowerTool)
+			.collect(Collectors.toCollection(ArrayList::new));
+		
 		return tools;
 	} // End of getTools() method
 	
 	public static ArrayList<Item> getElectronics(ArrayList<Item> theItems) {
 		// Post5
-		ArrayList<Item> electronics = new ArrayList<Item>();
-		for (Item elem : theItems) {
-			// Find and add Items of Computer and Television (electronic) types to ArrayList
-			if (elem instanceof Computer || elem instanceof Television) {
-				electronics.add(elem);
-			}
-		}
+		// Use stream and lamdbas to filter Items of Computer and Television (electronic)
+		// types and add to new ArrayList electronics
+		ArrayList<Item> electronics = theItems
+			.stream()
+			.filter(b -> b instanceof Computer || b instanceof Television)
+			.collect(Collectors.toCollection(ArrayList::new));	
+		
 		return electronics;
 	} // End of getElectronics() method
 	
 	public static ArrayList<Item> getBooks(ArrayList<Item> theItems) {
 		// Post6
-		ArrayList<Item> books = new ArrayList<Item>();
-		for (Item elem : theItems) {
-			// Find and add Items of HardCopy and SoftCopy (book) types to ArrayList
-			if (elem instanceof HardCopy || elem instanceof SoftCopy) {
-				books.add(elem);
-			}
-		}
+		// Use stream and lamdbas to filter Items of HardCopy and SoftCopy (book)
+		// types and add to new ArrayList books
+		ArrayList<Item> books = theItems
+				.stream()
+				.filter(b -> b instanceof HardCopy || b instanceof SoftCopy)
+				.collect(Collectors.toCollection(ArrayList::new));
+		
 		return books;
 	} // End of getBooks() method
 	
 	public static void displayAll(ArrayList<Item> theItems) {
 		// Post7
 		System.out.println("      ***** Displaying " + theItems.size() + " items *****        ");
-		// Iterate through each element of Item type
-		// Determine the instance of each element and print based on that info
-		for (Item elem: theItems) {
-			System.out.println("=============================================");
-			if (elem != null) {
-				System.out.println(elem);
-			}
-		} // End of for loop		
+		// Create Stream object of ArrayList theItems
+		// Iterate through each element of the Stream and print
+		theItems
+			.stream()
+			.forEach(i -> System.out.println(i + "\n============================================="));
 	} // End of displayAll() method
 	
-	
-
-	
-	
+		
 	 public static void main(String[] args) {
 		/* Precondition 1: InventoryFile.txt contains the desired items to go into inventory.
 		 * The formating is as in a CSV, each item is in a new line, each property for items is
