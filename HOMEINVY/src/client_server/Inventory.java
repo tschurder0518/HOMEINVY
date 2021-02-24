@@ -39,7 +39,6 @@ public class Inventory {
 	 * Post7 (Display): The items are displayed on the console.
 	 */	
 
-	
 	// CONSTANT for all items created from the file
 	public static ArrayList<Item> theItems = new ArrayList<Item>();
 	
@@ -120,7 +119,7 @@ public class Inventory {
 		return theItems;
 	} // End of parseData() method
 	
-	public static ArrayList<Item> getTools(ArrayList<Item> theItems) {
+	public ArrayList<Item> getTools(ArrayList<Item> theItems) {
 		// Post4
 		// Use stream and lamdbas to filter Items of HandTool and PowerTool (tool)
 		// types and add to new ArrayList tools
@@ -132,7 +131,7 @@ public class Inventory {
 		return tools;
 	} // End of getTools() method
 	
-	public static ArrayList<Item> getElectronics(ArrayList<Item> theItems) {
+	public ArrayList<Item> getElectronics(ArrayList<Item> theItems) {
 		// Post5
 		// Use stream and lamdbas to filter Items of Computer and Television (electronic)
 		// types and add to new ArrayList electronics
@@ -144,7 +143,7 @@ public class Inventory {
 		return electronics;
 	} // End of getElectronics() method
 	
-	public static ArrayList<Item> getBooks(ArrayList<Item> theItems) {
+	public ArrayList<Item> getBooks(ArrayList<Item> theItems) {
 		// Post6
 		// Use stream and lamdbas to filter Items of HardCopy and SoftCopy (book)
 		// types and add to new ArrayList books
@@ -156,7 +155,7 @@ public class Inventory {
 		return books;
 	} // End of getBooks() method
 	
-	public static void displayAll(ArrayList<Item> theItems) {
+	public void displayAll(ArrayList<Item> theItems) {
 		// Post7
 		System.out.println("      ***** Displaying " + theItems.size() + " items *****        ");
 		// Create Stream object of ArrayList theItems
@@ -165,5 +164,4 @@ public class Inventory {
 			.stream()
 			.forEach(i -> System.out.println(i + "\n============================================="));
 	} // End of displayAll() method
-	
 } // End of Inventory Class

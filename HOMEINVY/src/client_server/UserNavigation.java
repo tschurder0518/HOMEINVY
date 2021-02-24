@@ -2,7 +2,6 @@ package client_server;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import items.Item;
 import reports.Reports;
 
@@ -30,7 +29,7 @@ public class UserNavigation {
 	 * including special note if status is "Poor".
 	 */
 	
-	public static void mainMenu(ArrayList<Item> theItems) {
+	public void mainMenu(ArrayList<Item> theItems, Inventory myInventory) {
 		// Post1
 		ArrayList<Item> viewItems = new ArrayList<Item>();
 		System.out.println("=============================================");
@@ -53,7 +52,7 @@ public class UserNavigation {
 		switch (reader.next() ) {
 			case "1":
 				// Send to View items submenu in method viewItemsMenu
-				viewItems = viewItemsMenu(theItems);
+				viewItems = viewItemsMenu(theItems, myInventory);
 				reader.close();
 				break;
 			case "2":
@@ -66,7 +65,7 @@ public class UserNavigation {
 				System.out.println("Remove an item selected. Menu item not implemented yet.\n");
 				break;
 			case "5":
-				viewReportsMenu(theItems); // Post8 Go to method to display reports sub menu
+				viewReportsMenu(theItems, myInventory); // Post8 Go to method to display reports sub menu
 				break;
 			case "6":
 				System.out.println("Thanks for using HOMEINVY! Program execution complete.");
@@ -78,7 +77,7 @@ public class UserNavigation {
 	}
 	
 	
-	public static ArrayList<Item> viewItemsMenu(ArrayList<Item> theItems) {
+	public ArrayList<Item> viewItemsMenu(ArrayList<Item> theItems, Inventory myInventory) {
 		// Post4
 		// Display submenu for view items and take input from  user on what items to display
 		ArrayList<Item> selectedItems = new ArrayList<Item>();
@@ -99,27 +98,27 @@ public class UserNavigation {
 			case "1":
 				// Display all items in the inventory
 				System.out.println("     ***** ALL ITEMS IN INVENTORY *****      ");
-				Inventory.displayAll(theItems); // Post7
+				myInventory.displayAll(theItems); // Post7
 				reader.close();
 				return theItems;
 			case "2":
 				// Display only tools in the inventory
 				System.out.println("     ***** ALL TOOLS IN INVENTORY *****       ");
-				selectedItems = Inventory.getTools(theItems); // Post6
+				selectedItems = myInventory.getTools(theItems); // Post6
 				break;
 			case "3":
 				// Display only electronics in inventory
 				System.out.println("  ***** ALL ELECTRONICS IN INVENTORY *****    ");
-				selectedItems = Inventory.getElectronics(theItems); // Post6
+				selectedItems = myInventory.getElectronics(theItems); // Post6
 				break;
 			case "4":
 				// Display only books in inventory
 				System.out.println("     ***** ALL BOOKS IN INVENTORY *****        ");
-				selectedItems = Inventory.getBooks(theItems); // Post6
+				selectedItems = myInventory.getBooks(theItems); // Post6
 				break;
 			case "5":
 				// Exit back to main menu
-				mainMenu(theItems);
+				mainMenu(theItems, myInventory);
 			case "6":
 				System.out.println("Thanks for using HOMEINVY! Program execution complete.");
 				System.exit(0); // Gracefully exit program with normal termination code (0)
@@ -128,11 +127,11 @@ public class UserNavigation {
 		}		
 		reader.close();
 
-		Inventory.displayAll(selectedItems); // Post 7, pass updated items to be displayed to display method
+		myInventory.displayAll(selectedItems); // Post 7, pass updated items to be displayed to display method
 		return selectedItems;
 	}
 	
-	public static void viewReportsMenu(ArrayList<Item> theItems) {
+	public void viewReportsMenu(ArrayList<Item> theItems, Inventory myInventory) {
 		// Post 8
 		// Display Reports sub menu
 		System.out.println("=============================================");
@@ -169,7 +168,7 @@ public class UserNavigation {
 				break;
 			case "3":
 				// Exit back to main menu
-				mainMenu(theItems);
+				mainMenu(theItems, myInventory);
 			case "4":
 				System.out.println("Thanks for using HOMEINVY! Program execution complete.");
 				System.exit(0); // Gracefully exit program with normal termination code (0)
