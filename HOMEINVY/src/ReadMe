@@ -1,23 +1,24 @@
 Tabitha O'Leary
 MET CS 622 - Spring O1 - 2021
 Project: HOMEINVY
-Assignment #3 - ReadMe
+Assignment #5 - ReadMe
 
-Requirements: Assignment #3
--Incorporate Generic Class/Method --> found in Reports.java, methods printMaintenanceNeeded and printAllMaintenanceStatus
+Requirements: Assignment #
+-Incorporate Concurrency --> found in Server.java
 
 HOMEINVY Requirements implemented as well:
--Main menu update - now includes reporting option
--New report sub menu - allowing viewing of various maintenance reports
--View items needing replacement or repair - displaying only items with "Poor" condition
--View maintenance status for all items - displaying condition of all items, with special message if status is "Poor"
+-Updated to be a multi-user application. The use of sockets, Threads, and updating
+the Object Oriented programming in the Inventory and UserNavigation methods allows
+the application to be used by multiple users at once.
 
 Design:
--See class and sequence diagrams in assignment 3 document for details (very little change in this version)
+-See class and sequence diagrams in assignment 5 document for details.
  
  Run:
- -Run the program from the inventory/Inventory.java in the main() method. Run JUnit testing from
- inventory_test/InventoryTest.java.
+-Run the program by first starting the Server.java
+-Run multiple instances of Client.java after starting Server.java to get program
+functionality
+-Run JUnit testing from inventory_test/InventoryTest.java.
 
 
 
