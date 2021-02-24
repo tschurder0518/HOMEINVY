@@ -1,6 +1,8 @@
-package inventory;
+package client_server;
 
 import java.util.ArrayList;
+
+import client_server.Inventory;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,7 +18,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.geometry.HPos;
-import inventory.Inventory;
 import items.Item;
 
 public class HOMEINVYApp extends Application {
@@ -31,7 +32,7 @@ public class HOMEINVYApp extends Application {
 	*/ 
 	
 	// CONSTANT for file name
-	static String INVENTORY_FILE = "src/inventory/InventoryFile.txt";
+	static String INVENTORY_FILE = "src/client_server/InventoryFile.txt";
 	
 	// CONSTANT for all items created from the file
 	public static ArrayList<Item> theItems = new ArrayList<Item>();
@@ -192,7 +193,8 @@ public class HOMEINVYApp extends Application {
 	public static void main(String[] args) {
 		// create a HOMEINVY object and call its start method
 		 try {
-			 theItems = Inventory.readInventory(INVENTORY_FILE);
+			 Inventory myInventory = new Inventory();
+			 theItems = myInventory.readInventory(INVENTORY_FILE);
 		 }
 		 catch(Exception e) {
 			 System.out.println(e);

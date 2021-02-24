@@ -1,4 +1,4 @@
-package inventory;
+package client_server;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +12,7 @@ import items.Television;
 import items.Computer;
 import items.SoftCopy;
 import items.HardCopy;
-import user_navigation.UserNavigation;
+
 import java.util.stream.Collectors;
 
 public class Inventory {
@@ -20,17 +20,33 @@ public class Inventory {
 	 * and parses a .txt file and uses the information to create Item 
 	 * objects for each item in the inventory file. 
 	 * 
-	 * See main() for more information.
-	 */
+	 * Precondition 1: InventoryFile.txt contains the desired items to go into inventory.
+	 * The formating is as in a CSV, each item is in a new line, each property for items is
+	 * separated by a comma. Each line must contain 10 commas, including extra commas if
+	 * item has fewer than 9 attributes.
+	 * 
+	 * Postcondition 1 (Import): Importing file using readInventory() method.
+	 * Post2 (Parse Data): Contents of each line assigned to temporary variables for each item
+	 * in file.
+	 * Post3 (Create objects): Each line of information in file is used to create objects, which
+	 * are then added to ArrayList.
+	 * Post4 (Get Tools): Search for items of type PowerTool or HandTool and add to new ArrayList
+	 * to be displayed.
+	 * Post5 (Get Electronics): Search for items of type Computer and Television and add to new
+	 * ArrayList to be displayed.
+	 * Post6 (Get Books): Search for items of type HardCopy and SoftCopy and add to new ArrayList
+	 * to be displayed.
+	 * Post7 (Display): The items are displayed on the console.
+	 */	
 
-	// CONSTANT for file name
-	static String INVENTORY_FILE = "src/inventory/InventoryFile.txt";
 	
 	// CONSTANT for all items created from the file
 	public static ArrayList<Item> theItems = new ArrayList<Item>();
 	
-	public static ArrayList<Item> readInventory(String INVENTORY_FILE) throws IOException,
-			InsufficientItemDataException {
+	public ArrayList<Item> readInventory(String INVENTORY_FILE) throws IOException,
+		InsufficientItemDataException {
+	//public static ArrayList<Item> readInventory(String INVENTORY_FILE) throws IOException,
+	//		InsufficientItemDataException {
 		// Create new Scanner object for the inventory file, read each line
 		// Post1 - read file contents
 		try(Scanner input = new Scanner(Paths.get(INVENTORY_FILE))) {
@@ -53,7 +69,8 @@ public class Inventory {
 		return theItems;
 	} // End readInventory() method
 	
-	private static ArrayList<Item> parseData(String str) throws InsufficientItemDataException {
+	private ArrayList<Item> parseData(String str) throws InsufficientItemDataException {
+	//private static ArrayList<Item> parseData(String str) throws InsufficientItemDataException {
 		// Parse through information and create objects - Post2 and Post3
 		String category, name, location, purchaseYear, condition, att1, att2, att3, att4, att5;
 		Scanner lineScanner = new Scanner(str);
@@ -149,37 +166,4 @@ public class Inventory {
 			.forEach(i -> System.out.println(i + "\n============================================="));
 	} // End of displayAll() method
 	
-		
-	 public static void main(String[] args) {
-		/* Precondition 1: InventoryFile.txt contains the desired items to go into inventory.
-		 * The formating is as in a CSV, each item is in a new line, each property for items is
-		 * separated by a comma. Each line must contain 10 commas, including extra commas if
-		 * item has fewer than 9 attributes.
-		 * 
-		 * Postcondition 1 (Import): Importing file using readInventory() method.
-		 * Post2 (Parse Data): Contents of each line assigned to temporary variables for each item
-		 * in file.
-		 * Post3 (Create objects): Each line of information in file is used to create objects, which
-		 * are then added to ArrayList.
-		 * Post4 (Get Tools): Search for items of type PowerTool or HandTool and add to new ArrayList
-		 * to be displayed.
-		 * Post5 (Get Electronics): Search for items of type Computer and Television and add to new
-		 * ArrayList to be displayed.
-		 * Post6 (Get Books): Search for items of type HardCopy and SoftCopy and add to new ArrayList
-		 * to be displayed.
-		 * Post7 (Display): The items are displayed on the console.
-		 */		
-		 
-		 // Create inventory from file
-		 try {
-			 theItems = readInventory(INVENTORY_FILE);
-		 }
-		 catch(Exception e) {
-			 System.out.println(e);
-		 }
-		 
-		// Provide user navigation to select what to do with inventory
-		UserNavigation.mainMenu(theItems);
-
-	 }
-}
+} // End of Inventory Class

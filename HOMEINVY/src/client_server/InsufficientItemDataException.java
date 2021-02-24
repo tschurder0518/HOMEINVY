@@ -1,4 +1,4 @@
-package inventory;
+package client_server;
 
 public class InsufficientItemDataException extends Exception {
 		private static final long serialVersionUID = 1L;

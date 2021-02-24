@@ -2,6 +2,8 @@ package inventory_test;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import client_server.Inventory;
 import items.Item;
 import items.PowerTool;
 import items.HandTool;
@@ -10,7 +12,6 @@ import items.Computer;
 import items.SoftCopy;
 import items.HardCopy;
 import java.util.ArrayList;
-import inventory.Inventory;
 
 public class InventoryTest {
 
@@ -226,7 +227,8 @@ public class InventoryTest {
 		ArrayList<Item> theItems = new ArrayList<Item>();
 		
 		 try {
-			 theItems = Inventory.readInventory(INVENTORY_FILE);
+			 Inventory myInventory = new Inventory();
+			 theItems = myInventory.readInventory(INVENTORY_FILE);
 		 }
 		 catch(Exception e) {
 			 System.out.println(e);

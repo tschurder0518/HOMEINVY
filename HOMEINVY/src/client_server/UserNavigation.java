@@ -1,8 +1,8 @@
-package user_navigation;
+package client_server;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import inventory.Inventory;
+
 import items.Item;
 import reports.Reports;
 
